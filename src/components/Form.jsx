@@ -23,6 +23,7 @@ class Form extends Component {
         <label htmlFor="name">
           Nome
           <input
+            name="cardName"
             id="name"
             value={ cardName }
             onChange={ onInputChange }
@@ -34,6 +35,7 @@ class Form extends Component {
         <label htmlFor="description">
           Descrição
           <input
+            name="cardDescription"
             id="description"
             value={ cardDescription }
             onChange={ onInputChange }
@@ -44,6 +46,7 @@ class Form extends Component {
         <label htmlFor="attribute-1">
           Atributo 1
           <input
+            name="cardAttr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
             id="attribute-1"
@@ -54,6 +57,7 @@ class Form extends Component {
         <label htmlFor="attribute-2">
           Atributo 2
           <input
+            name="cardAttr2"
             value={ cardAttr2 }
             onChange={ onInputChange }
             id="attribute-2"
@@ -64,6 +68,7 @@ class Form extends Component {
         <label htmlFor="attribute-3">
           Atributo 3
           <input
+            name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
             id="attribute-3"
@@ -74,6 +79,7 @@ class Form extends Component {
         <label htmlFor="image">
           Imagem
           <input
+            name="cardImage"
             value={ cardImage }
             onChange={ onInputChange }
             id="image"
@@ -85,6 +91,7 @@ class Form extends Component {
         <label htmlFor="rarity">
           Raridade
           <select
+            name="cardRare"
             value={ cardRare }
             onChange={ onInputChange }
             id="rarity"
@@ -99,7 +106,8 @@ class Form extends Component {
         <label htmlFor="super-check">
           Super Trunfo
           <input
-            checked
+            name="cardTrunfo"
+            defaultChecked={ cardTrunfo }
             value={ cardTrunfo }
             onChange={ onInputChange }
             id="super-check"
