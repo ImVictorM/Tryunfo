@@ -1,0 +1,13 @@
+form {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  width: 100%;
+}
