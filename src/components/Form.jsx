@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SuperTrunfo from './SuperTrunfo';
 
 class Form extends Component {
   render() {
@@ -12,7 +13,7 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -103,18 +104,11 @@ class Form extends Component {
           </select>
         </label>
 
-        <label htmlFor="super-check">
-          Super Trunfo
-          <input
-            name="cardTrunfo"
-            defaultChecked={ cardTrunfo }
-            value={ cardTrunfo }
-            onChange={ onInputChange }
-            id="super-check"
-            type="checkbox"
-            data-testid="trunfo-input"
-          />
-        </label>
+        {
+          hasTrunfo
+            ? <p>Você já tem um Super Trunfo em seu baralho</p>
+            : <SuperTrunfo cardTrunfo={ cardTrunfo } onInputChange={ onInputChange } />
+        }
 
         <button
           disabled={ isSaveButtonDisabled }
@@ -138,7 +132,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

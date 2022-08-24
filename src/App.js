@@ -78,6 +78,14 @@ class App extends React.Component {
     });
   };
 
+  checkTrunfo = () => {
+    const { savedCards } = this.state;
+    const deckHasTrunfo = savedCards.some((card) => card.cardTrunfo === true);
+    if (deckHasTrunfo) {
+      this.setState({ hasTrunfo: true });
+    }
+  };
+
   onSaveButtonClick = () => {
     const {
       cardName,
@@ -102,7 +110,10 @@ class App extends React.Component {
       cardTrunfo,
     };
     // push into state array: https://stackoverflow.com/questions/37435334/correct-way-to-push-into-state-array
-    this.setState({ savedCards: [...savedCards, card] }, this.resetForm);
+    this.setState({ savedCards: [...savedCards, card] }, () => {
+      this.resetForm();
+      this.checkTrunfo();
+    });
   };
 
   render() {
