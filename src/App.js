@@ -78,6 +78,13 @@ class App extends React.Component {
     });
   };
 
+  deleteCard = ({ target }) => {
+    const { name } = target;
+    const { savedCards } = this.state;
+    const arraywithCardRemove = savedCards.filter((card) => card.cardName !== name);
+    this.setState({ savedCards: arraywithCardRemove }, this.checkTrunfo);
+  };
+
   checkTrunfo = () => {
     const { savedCards } = this.state;
     const deckHasTrunfo = savedCards.some((card) => card.cardTrunfo === true);
@@ -167,7 +174,19 @@ class App extends React.Component {
         />
         <Card { ...cardData } />
         <section>
-          {savedCards.map((element) => <Card key={ element.cardName } { ...element } />)}
+          {savedCards.map((element) => (
+            <div key={ element.cardName }>
+              <Card { ...element } />
+              <button
+                name={ element.cardName }
+                type="button"
+                onClick={ this.deleteCard }
+                data-testid="delete-button"
+              >
+                Excluir
+              </button>
+            </div>
+          ))}
         </section>
       </div>
     );
