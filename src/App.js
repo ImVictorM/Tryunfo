@@ -1,9 +1,8 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Filter from './components/Filter';
 import './App.css';
-
-// passar multiplas props: https://www.youtube.com/watch?v=aWWIqdCc4GA
 
 class App extends React.Component {
   state = {
@@ -18,6 +17,7 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     savedCards: [],
+    inputFilterName: '',
   };
 
   validateAttributes = (arrOfAttributes) => {
@@ -79,10 +79,13 @@ class App extends React.Component {
   };
 
   deleteCard = ({ target }) => {
+    // referencia para tirar item do array: https://stackoverflow.com/questions/36326612/how-to-delete-an-item-from-state-array
     const { name } = target;
     const { savedCards } = this.state;
     const arraywithCardRemove = savedCards.filter((card) => card.cardName !== name);
-    this.setState({ savedCards: arraywithCardRemove }, this.checkTrunfo);
+    this.setState({
+      savedCards: arraywithCardRemove,
+    }, this.checkTrunfo);
   };
 
   checkTrunfo = () => {
@@ -119,7 +122,9 @@ class App extends React.Component {
       cardTrunfo,
     };
     // push into state array: https://stackoverflow.com/questions/37435334/correct-way-to-push-into-state-array
-    this.setState({ savedCards: [...savedCards, card] }, () => {
+    this.setState({
+      savedCards: [...savedCards, card],
+    }, () => {
       this.resetForm();
       this.checkTrunfo();
     });
@@ -127,66 +132,41 @@ class App extends React.Component {
 
   render() {
     const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
+      inputFilterName,
       savedCards,
     } = this.state;
-
-    const formData = {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
-    };
-
-    const cardData = {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-    };
 
     return (
       <div>
         <h1>Tryunfo</h1>
         <Form
-          { ...formData }
+          { ...this.state }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
-        <Card { ...cardData } />
+        <Card { ...this.state } />
+        <Filter
+          onInputChange={ this.onInputChange }
+          inputFilterName={ inputFilterName }
+        />
         <section>
-          {savedCards.map((element) => (
-            <div key={ element.cardName }>
-              <Card { ...element } />
-              <button
-                name={ element.cardName }
-                type="button"
-                onClick={ this.deleteCard }
-                data-testid="delete-button"
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
+          {
+            savedCards
+              .filter((card) => card.cardName.includes(inputFilterName))
+              .map((element) => (
+                <div key={ element.cardName }>
+                  <Card { ...element } />
+                  <button
+                    name={ element.cardName }
+                    type="button"
+                    onClick={ this.deleteCard }
+                    data-testid="delete-button"
+                  >
+                    Excluir
+                  </button>
+                </div>
+              ))
+          }
         </section>
       </div>
     );
