@@ -83,6 +83,8 @@ class App extends React.Component {
     const deckHasTrunfo = savedCards.some((card) => card.cardTrunfo === true);
     if (deckHasTrunfo) {
       this.setState({ hasTrunfo: true });
+    } else {
+      this.setState({ hasTrunfo: false });
     }
   };
 
@@ -128,6 +130,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      savedCards,
     } = this.state;
 
     const formData = {
@@ -163,6 +166,9 @@ class App extends React.Component {
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card { ...cardData } />
+        <section>
+          {savedCards.map((element) => <Card key={ element.cardName } { ...element } />)}
+        </section>
       </div>
     );
   }
