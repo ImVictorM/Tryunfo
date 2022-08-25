@@ -19,9 +19,9 @@ class Form extends Component {
       onSaveButtonClick,
     } = this.props;
     return (
-      <form>
+      <form className="main-form">
         <h2>Adicionar nova carta</h2>
-        <label htmlFor="name">
+        <label htmlFor="name" className="input-label">
           Nome
           <input
             name="cardName"
@@ -31,9 +31,10 @@ class Form extends Component {
             data-testid="name-input"
             type="text"
             placeholder="nome-da-carta"
+            className="form-input"
           />
         </label>
-        <label htmlFor="description">
+        <label htmlFor="description" className="input-label">
           Descrição
           <input
             name="cardDescription"
@@ -42,9 +43,11 @@ class Form extends Component {
             onChange={ onInputChange }
             type="textarea"
             data-testid="description-input"
+            className="form-input"
+            placeholder="descrição-da-carta"
           />
         </label>
-        <label htmlFor="attribute-1">
+        <label htmlFor="attribute-1" className="input-label">
           Atributo 1
           <input
             name="cardAttr1"
@@ -53,9 +56,10 @@ class Form extends Component {
             id="attribute-1"
             data-testid="attr1-input"
             type="number"
+            className="form-input"
           />
         </label>
-        <label htmlFor="attribute-2">
+        <label htmlFor="attribute-2" className="input-label">
           Atributo 2
           <input
             name="cardAttr2"
@@ -64,9 +68,10 @@ class Form extends Component {
             id="attribute-2"
             data-testid="attr2-input"
             type="number"
+            className="form-input"
           />
         </label>
-        <label htmlFor="attribute-3">
+        <label htmlFor="attribute-3" className="input-label">
           Atributo 3
           <input
             name="cardAttr3"
@@ -75,9 +80,10 @@ class Form extends Component {
             id="attribute-3"
             data-testid="attr3-input"
             type="number"
+            className="form-input"
           />
         </label>
-        <label htmlFor="image">
+        <label htmlFor="image" className="input-label">
           Imagem
           <input
             name="cardImage"
@@ -86,10 +92,12 @@ class Form extends Component {
             id="image"
             type="text"
             data-testid="image-input"
+            className="form-input"
+            placeholder="url-da-imagem"
           />
         </label>
 
-        <label htmlFor="rarity">
+        <label htmlFor="rarity" className="input-label">
           Raridade
           <select
             name="cardRare"
@@ -97,6 +105,7 @@ class Form extends Component {
             onChange={ onInputChange }
             id="rarity"
             data-testid="rare-input"
+            className="form-input"
           >
             <option value="normal">normal</option>
             <option value="raro">raro</option>

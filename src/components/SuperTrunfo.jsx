@@ -6,7 +6,7 @@ class SuperTrunfo extends Component {
     const { cardTrunfo, onInputChange } = this.props;
 
     return (
-      <label htmlFor="super-check">
+      <label htmlFor="super-check" className="checkbox-label">
         Super Trunfo
         <input
           name="cardTrunfo"
@@ -16,6 +16,7 @@ class SuperTrunfo extends Component {
           id="super-check"
           type="checkbox"
           data-testid="trunfo-input"
+          className="checkbox-input"
         />
       </label>
     );
