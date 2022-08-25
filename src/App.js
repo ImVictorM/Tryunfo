@@ -18,6 +18,7 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
     savedCards: [],
     inputFilterName: '',
+    rarityFilter: 'todas',
   };
 
   validateAttributes = (arrOfAttributes) => {
@@ -134,6 +135,7 @@ class App extends React.Component {
     const {
       inputFilterName,
       savedCards,
+      rarityFilter,
     } = this.state;
 
     return (
@@ -146,13 +148,19 @@ class App extends React.Component {
         />
         <Card { ...this.state } />
         <Filter
+          { ...this.state }
           onInputChange={ this.onInputChange }
-          inputFilterName={ inputFilterName }
         />
         <section>
           {
             savedCards
-              .filter((card) => card.cardName.includes(inputFilterName))
+              .filter((card) => {
+                const { cardName, cardRare } = card;
+                if (rarityFilter === 'todas') {
+                  return cardName.includes(inputFilterName);
+                }
+                return cardName.includes(inputFilterName) && cardRare === rarityFilter;
+              })
               .map((element) => (
                 <div key={ element.cardName }>
                   <Card { ...element } />
