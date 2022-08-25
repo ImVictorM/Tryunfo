@@ -7,9 +7,10 @@ class Filter extends Component {
     return (
       <section>
         <h3>Filtro de busca</h3>
-        <label htmlFor="name">
+        <label htmlFor="inputFilterName">
           Nome:
           <input
+            id="inputFilterName"
             name="inputFilterName"
             type="text"
             value={ inputFilterName }
