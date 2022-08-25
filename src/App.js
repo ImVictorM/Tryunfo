@@ -19,6 +19,7 @@ class App extends React.Component {
     savedCards: [],
     inputFilterName: '',
     rarityFilter: 'todas',
+    superFilter: false,
   };
 
   validateAttributes = (arrOfAttributes) => {
@@ -76,6 +77,7 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       cardRare: 'normal',
+      cardTrunfo: false,
     });
   };
 
@@ -136,6 +138,7 @@ class App extends React.Component {
       inputFilterName,
       savedCards,
       rarityFilter,
+      superFilter,
     } = this.state;
 
     return (
@@ -155,7 +158,10 @@ class App extends React.Component {
           {
             savedCards
               .filter((card) => {
-                const { cardName, cardRare } = card;
+                const { cardName, cardRare, cardTrunfo } = card;
+                if (superFilter) {
+                  return cardTrunfo;
+                }
                 if (rarityFilter === 'todas') {
                   return cardName.includes(inputFilterName);
                 }
