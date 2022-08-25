@@ -150,7 +150,10 @@ class App extends React.Component {
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
           />
-          <Card { ...this.state } />
+          <section className="preview">
+            <h2>Preview</h2>
+            <Card { ...this.state } />
+          </section>
         </div>
         <Filter
           { ...this.state }
