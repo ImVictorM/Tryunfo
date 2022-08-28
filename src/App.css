@@ -198,7 +198,7 @@ button:enabled {
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin: 40px auto;
   min-height: 400px;
   padding: 25px;
