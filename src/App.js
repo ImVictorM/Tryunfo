@@ -159,33 +159,36 @@ class App extends React.Component {
           { ...this.state }
           onInputChange={ this.onInputChange }
         />
-        <section>
-          {
-            savedCards
-              .filter((card) => {
-                const { cardName, cardRare, cardTrunfo } = card;
-                if (superFilter) {
-                  return cardTrunfo;
-                }
-                if (rarityFilter === 'todas') {
-                  return cardName.includes(inputFilterName);
-                }
-                return cardName.includes(inputFilterName) && cardRare === rarityFilter;
-              })
-              .map((element) => (
-                <div key={ element.cardName }>
-                  <Card { ...element } />
-                  <button
-                    name={ element.cardName }
-                    type="button"
-                    onClick={ this.deleteCard }
-                    data-testid="delete-button"
-                  >
-                    Excluir
-                  </button>
-                </div>
-              ))
-          }
+        <section className="deck-section">
+          <h2 className="deck-title">Deck</h2>
+          <div className="deck-container">
+            {
+              savedCards
+                .filter((card) => {
+                  const { cardName, cardRare, cardTrunfo } = card;
+                  if (superFilter) {
+                    return cardTrunfo;
+                  }
+                  if (rarityFilter === 'todas') {
+                    return cardName.includes(inputFilterName);
+                  }
+                  return cardName.includes(inputFilterName) && cardRare === rarityFilter;
+                })
+                .map((element) => (
+                  <div key={ element.cardName } className="deck-card">
+                    <Card { ...element } />
+                    <button
+                      name={ element.cardName }
+                      type="button"
+                      onClick={ this.deleteCard }
+                      data-testid="delete-button"
+                    >
+                      Excluir
+                    </button>
+                  </div>
+                ))
+            }
+          </div>
         </section>
       </div>
     );
