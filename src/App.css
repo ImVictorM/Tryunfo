@@ -176,8 +176,6 @@ button:enabled {
 
 .filter-inputs-container {
   display: flex;
-  margin: 0 auto;
-  margin-bottom: 40px;
   width: 80%;
 }
 
@@ -186,10 +184,15 @@ button:enabled {
   margin: 0 20px;
 }
 
+.deck-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .deck-section .deck-title {
   color: rgb(0, 154, 128);
   font-size: 30px;
-  text-align: center;
 }
 
 .deck-container {
@@ -199,8 +202,33 @@ button:enabled {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 40px auto;
   min-height: 400px;
   padding: 25px;
   width: 90%;
+}
+
+@media screen and ( max-width : 820px ) {
+
+  .card-creation-container {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .main-form {
+    margin-bottom: 20px;
+    width: 80%;
+  }
+
+  .preview {
+    padding-bottom: 40px;
+    width: 100%;
+  }
+
+  .filter-inputs-container {
+    flex-wrap: wrap;
+  }
+
+  .filter-inputs-container label {
+    margin: 7px 0;
+  }
 }
