@@ -307,7 +307,7 @@ button:enabled {
 }
 
 select:disabled {
-  color: black;
+  color: rgba(0, 0, 0, 0.274);
 }
 
 input:disabled {
@@ -316,5 +316,5 @@ input:disabled {
 }
 
 input:disabled::placeholder {
-  color: black;
+  color: rgba(0, 0, 0, 0.274);
 }
