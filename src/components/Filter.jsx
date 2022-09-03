@@ -19,6 +19,7 @@ class Filter extends Component {
               onChange={ onInputChange }
               disabled={ superFilter }
               className="form-input"
+              placeholder="nome-da-carta"
             />
           </label>
           <label htmlFor="rarity-filter" className="input-label">

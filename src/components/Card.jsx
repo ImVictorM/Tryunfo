@@ -18,10 +18,11 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      cardColor,
     } = this.props;
 
     return (
-      <section className="card">
+      <section className={ `card ${cardColor}` }>
         <h2 data-testid="name-card">
           <div>
             <FontAwesomeIcon icon={ faFileSignature } />
@@ -64,6 +65,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  cardColor: PropTypes.string.isRequired,
 };
 
 export default Card;

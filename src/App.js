@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Form from './components/Form';
 import Card from './components/Card';
 import Filter from './components/Filter';
@@ -20,6 +21,24 @@ class App extends React.Component {
     inputFilterName: '',
     rarityFilter: 'todas',
     superFilter: false,
+    cardColor: 'green',
+  };
+
+  changeCardColor = () => {
+    const { cardRare } = this.state;
+    let color = null;
+    switch (cardRare) {
+    case 'raro':
+      color = 'blue';
+      break;
+    case 'muito raro':
+      color = 'red';
+      break;
+    default:
+      color = 'green';
+      break;
+    }
+    this.setState({ cardColor: color });
   };
 
   validateAttributes = (arrOfAttributes) => {
@@ -64,7 +83,11 @@ class App extends React.Component {
       {
         [name]: value,
       },
-      this.validateForm,
+      () => {
+        this.validateForm();
+        this.changeCardColor();
+      },
+
     );
   };
 
@@ -112,6 +135,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       savedCards,
+      cardColor,
     } = this.state;
 
     const card = {
@@ -123,6 +147,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      cardColor,
     };
     // push into state array: https://stackoverflow.com/questions/37435334/correct-way-to-push-into-state-array
     this.setState({
@@ -142,7 +167,7 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <main>
         <h1>Tryunfo</h1>
         <div className="card-creation-container">
           <Form
@@ -175,7 +200,7 @@ class App extends React.Component {
                   return cardName.includes(inputFilterName) && cardRare === rarityFilter;
                 })
                 .map((element) => (
-                  <div key={ element.cardName } className="deck-card">
+                  <div key={ uuidv4() } className="deck-card">
                     <Card { ...element } />
                     <button
                       name={ element.cardName }
@@ -190,7 +215,7 @@ class App extends React.Component {
             }
           </div>
         </section>
-      </div>
+      </main>
     );
   }
 }
