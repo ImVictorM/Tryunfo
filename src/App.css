@@ -231,6 +231,10 @@ button:enabled {
 
 @media screen and ( max-width : 400px ) {
 
+  body {
+    font-size: 14px;
+  }
+
   .card {
     width: 270px;
   }
