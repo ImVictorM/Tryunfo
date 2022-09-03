@@ -101,6 +101,7 @@ class App extends React.Component {
       cardAttr3: '0',
       cardRare: 'normal',
       cardTrunfo: false,
+      cardColor: 'green',
     });
   };
 
@@ -207,6 +208,7 @@ class App extends React.Component {
                       type="button"
                       onClick={ this.deleteCard }
                       data-testid="delete-button"
+                      className="delete"
                     >
                       Excluir
                     </button>

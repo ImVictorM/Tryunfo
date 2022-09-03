@@ -70,6 +70,11 @@ button:enabled {
   cursor: pointer;
 }
 
+.delete:enabled {
+  background-color: rgb(226, 61, 61);
+  border: 1px solid rgba(0, 0, 0, 0.459);
+}
+
 .preview {
   align-items: center;
   background-color: rgb(71, 79, 94);
@@ -211,15 +216,15 @@ button:enabled {
 }
 
 .blue {
-  background-image: linear-gradient(to right, rgb(96, 44, 141), rgba(31, 0, 58, 0.712));
+  background-image: linear-gradient(to right, rgb(96, 44, 141), rgb(75, 26, 121));
 }
 
 .red {
-  background-image: linear-gradient(to right, rgb(156, 67, 71), rgba(58, 0, 4, 0.712));
+  background-image: linear-gradient(to right, rgb(156, 67, 71), rgb(126, 35, 30));
 }
 
 .green {
-  background-image: linear-gradient(to right, rgb(63, 111, 86), rgba(2, 58, 0, 0.712));
+  background-image: linear-gradient(to right, rgb(63, 111, 86), rgb(42, 80, 61));
 }
 
 @media screen and ( max-width : 400px ) {
