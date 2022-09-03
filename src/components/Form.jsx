@@ -45,6 +45,7 @@ class Form extends Component {
             data-testid="description-input"
             className="form-input"
             placeholder="descrição-da-carta"
+            maxLength={ 80 }
           />
         </label>
         <label htmlFor="attribute-1" className="input-label">
