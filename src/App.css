@@ -162,9 +162,12 @@ button:enabled {
 
 .description {
   color: white;
+  font-family: monospace;
+  font-size: 18px;
   height: 45px;
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
+  margin-top: 10px;
   width: 80%;
   word-break: break-all;
 }
@@ -232,8 +235,9 @@ button:enabled {
 
 @media screen and ( max-width : 400px ) {
 
-  body {
+  .description {
     font-size: 14px;
+    margin-bottom: 3px;
   }
 
   .card {
@@ -310,6 +314,10 @@ button:enabled {
     border-radius: 5px;
     margin: auto;
     width: 90%;
+  }
+
+  .description {
+    font-size: 18px;
   }
 
 }
