@@ -78,7 +78,7 @@ In this project, I was able to:
 
 1. Clone and enter this repository
 ```
-git clone git@github.com:ImVictorM/Solar-System.git && cd Solar-System
+git clone git@github.com:ImVictorM/Tryunfo.git && cd Tryunfo
 ```
 2. Install the dependencies
 ```
